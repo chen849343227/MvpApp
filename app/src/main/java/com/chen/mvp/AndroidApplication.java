@@ -2,7 +2,7 @@ package com.chen.mvp;
 
 import android.app.Application;
 
-import com.chen.mvp.RxBus.RxBus;
+import com.chen.mvp.rxbus.RxBus;
 import com.chen.mvp.api.RetrofitService;
 import com.chen.mvp.injector.component.ApplicationComponent;
 import com.chen.mvp.injector.component.DaggerApplicationComponent;

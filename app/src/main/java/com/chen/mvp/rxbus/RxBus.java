@@ -1,4 +1,4 @@
-package com.chen.mvp.RxBus;
+package com.chen.mvp.rxbus;
 
 /**
  * author long

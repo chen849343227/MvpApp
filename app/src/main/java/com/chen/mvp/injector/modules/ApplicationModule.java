@@ -3,7 +3,7 @@ package com.chen.mvp.injector.modules;
 import android.content.Context;
 
 import com.chen.mvp.AndroidApplication;
-import com.chen.mvp.RxBus.RxBus;
+import com.chen.mvp.rxbus.RxBus;
 
 import dagger.Module;
 import dagger.Provides;
