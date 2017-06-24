@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MvpApp</string>
+    <!--splash-->
+    <string name="skip_text">跳过</string>
+</resources>

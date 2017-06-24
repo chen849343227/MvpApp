@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/splash" />
+
+    <Button
+        android:textSize="@dimen/skip_btn_txt_size"
+        android:id="@+id/btn_skip"
+        android:textColor="@color/blue"
+        android:text="@string/app_name"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginEnd="@dimen/splash_btn_margin_end"
+        android:layout_marginRight="@dimen/splash_btn_margin_end"
+        android:layout_marginTop="@dimen/splash_btn_margin_top" />
+
+</FrameLayout>
