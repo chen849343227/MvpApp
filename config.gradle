@@ -49,6 +49,7 @@ ext {
                 "paginate"                 : "com.github.markomilos:paginate:0.5.1",
                 "switchbutton"             : "com.kyleduo.switchbutton:library:1.4.6",
                 "SpinKit"                  : "com.github.ybq:Android-SpinKit:1.0.5",
+                "circleImageView"          : "de.hdodenhof:circleimageview:2.1.0",
 
                 //rx
                 "rxandroid"                : "io.reactivex.rxjava2:rxandroid:2.0.1",
