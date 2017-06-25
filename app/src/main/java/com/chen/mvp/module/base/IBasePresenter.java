@@ -6,5 +6,5 @@ package com.chen.mvp.module.base;
  * desc
  */
 
-class IBasePresenter {
+interface IBasePresenter {
 }
