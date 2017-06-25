@@ -82,6 +82,10 @@ public abstract class BaseFragment<T extends IBasePresenter> extends RxFragment 
         }
     }
 
+    /**
+     * 设置Fragment对用户是否可见（有待研究）
+     * @param isVisibleToUser
+     */
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         if (isVisibleToUser && isVisible() && mRootView != null && !mIsMulti) {

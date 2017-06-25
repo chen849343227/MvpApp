@@ -6,24 +6,30 @@
         <item
             android:id="@+id/nav_news"
             android:icon="@mipmap/ic_nav_news"
-            android:title="新闻"/>
+            android:title="@string/nav_news"/>
 
         <item
             android:id="@+id/nav_photos"
             android:icon="@mipmap/ic_nav_picture"
-            android:title="图片"/>
+            android:title="@string/nav_photos"/>
 
         <item
             android:id="@+id/nav_videos"
             android:icon="@mipmap/ic_nav_video"
-            android:title="视频"/>
+            android:title="@string/nav_videos"/>
+
     </group>
 
     <group android:checkableBehavior="none">
 
         <item
+            android:id="@+id/nav_night"
+            android:title="@string/nav_night"
+            />
+
+        <item
             android:id="@+id/nav_setting"
             android:icon="@mipmap/ic_nav_setting"
-            android:title="设置"/>
+            android:title="@string/nav_setting"/>
     </group>
 </menu>

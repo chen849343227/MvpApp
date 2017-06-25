@@ -5,4 +5,11 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--nav view text-->
+    <string name="nav_night">夜间模式</string>
+    <string name="nav_setting">设置</string>
+    <string name="nav_videos">视频</string>
+    <string name="nav_photos">图片</string>
+    <string name="nav_news">新闻</string>
 </resources>
