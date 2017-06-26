@@ -47,7 +47,6 @@ public class NewsListPresenter implements IBasePresenter {
                 .subscribe(new Subscriber<List<NewsMultiItem>>() {
                     @Override
                     public void onCompleted() {
-                        Logger.w("onCompleted " + isRefresh);
                         if (isRefresh) {
                             mView.finishRefresh();
                         } else {
