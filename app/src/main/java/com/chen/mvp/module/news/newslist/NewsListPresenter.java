@@ -106,7 +106,6 @@ public class NewsListPresenter implements IBasePresenter {
         public Observable<List<NewsMultiItem>> call(Observable<NewsInfo> newsInfoObservable) {
             return newsInfoObservable
                     .map(newsInfo -> {
-                        //判断是不是照片广告栏
                         /*if (NewsUtils.isNewsPhotoSet(newsBean.getSkipType())) {
                             return new NewsMultiItem(NewsMultiItem.ITEM_TYPE_PHOTO_SET, newsBean);
                         }*/
