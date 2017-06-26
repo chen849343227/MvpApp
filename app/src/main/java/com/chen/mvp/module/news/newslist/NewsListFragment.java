@@ -89,12 +89,7 @@ public class NewsListFragment extends BaseFragment implements INewsListView{
     protected void initViews() {
         SlideInRightAnimationAdapter animAdapter = new SlideInRightAnimationAdapter(mBaseAdapter);
         RecyclerViewHelper.initRecyclerViewV(mContext, rvNewsList, true, new AlphaInAnimationAdapter(animAdapter));
-        mBaseAdapter.setRequestDataListener(new OnRequestDataListener() {
-            @Override
-            public void onLoadMore() {
-                mPresenter.getMoreData();
-            }
-        });
+        mBaseAdapter.setRequestDataListener(() -> mPresenter.getMoreData());
     }
 
     @Override
