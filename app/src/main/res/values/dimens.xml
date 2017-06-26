@@ -3,6 +3,10 @@
     <dimen name="splash_btn_margin_end">20dp</dimen>
     <dimen name="splash_btn_margin_top">30dp</dimen>
     <dimen name="skip_btn_txt_size">16sp</dimen>
+
     <dimen name="nav_header_height">180dp</dimen>
     <dimen name="nav_header_vertical_spacing">10dp</dimen>
+
+    <!-- TabLayout -->
+    <dimen name="tab_layout_height">38dp</dimen>
 </resources>
