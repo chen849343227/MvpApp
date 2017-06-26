@@ -1,15 +1,15 @@
 package com.chen.mvp.api;
 
+import com.chen.mvp.api.bean.BaseNewsInfo;
 import com.chen.mvp.api.bean.NewsInfo;
 
 import java.util.List;
 import java.util.Map;
 
-import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
+import rx.Observable;
 
 import static com.chen.mvp.api.RetrofitService.CACHE_CONTROL_NETWORK;
 
@@ -32,7 +32,7 @@ public interface INewsApi {
      */
     @Headers(CACHE_CONTROL_NETWORK)
     @GET("news/api")
-    Observable<Map<String, List<NewsInfo>>> getNewsList(@Query("type") String type, @Query("page") int page,
-                                                        @Query("limit") int limit);
+    Observable<BaseNewsInfo> getNewsList(@Query("type") String type, @Query("page") int page,
+                                         @Query("limit") int limit);
 
 }

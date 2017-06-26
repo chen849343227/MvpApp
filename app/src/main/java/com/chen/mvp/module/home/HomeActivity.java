@@ -1,11 +1,9 @@
 package com.chen.mvp.module.home;
 
+import android.Manifest;
 import android.os.Build;
-import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.NonNull;
-import android.support.design.internal.NavigationMenu;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -16,13 +14,14 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
-import com.chen.mvp.BuildConfig;
 import com.chen.mvp.R;
 import com.chen.mvp.module.base.BaseActivity;
-import com.chen.mvp.module.news.NewsMainFragment;
+import com.chen.mvp.module.news.main.NewsMainFragment;
+
+import java.io.File;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
+import rx.functions.Action1;
 
 
 public class HomeActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -83,12 +82,14 @@ public class HomeActivity extends BaseActivity implements NavigationView.OnNavig
         mSparseTags.put(R.id.nav_news, NEW);
         mSparseTags.put(R.id.nav_photos, PHOTO);
         mSparseTags.put(R.id.nav_videos, VIDEO);
+        _getPermission();
     }
 
 
     @Override
     protected void updateViews(boolean isRefresh) {
-
+        navView.setCheckedItem(R.id.nav_news);
+        addFragment(R.id.fl_container, new NewsMainFragment(), NEW);
     }
 
     @Override
@@ -144,13 +145,30 @@ public class HomeActivity extends BaseActivity implements NavigationView.OnNavig
         } else if (stackEntryCount == 1) {
             // 如果剩一个说明在主页，提示按两次退出app
             exit();
-        }else {
+        } else {
             // 获取上一个堆栈中保存的是哪个页面，根据name来设置导航项的选中状态
-            final String tagName = getSupportFragmentManager().getBackStackEntryAt(stackEntryCount - 2).getName();
+            final String tagName = getSupportFragmentManager().getBackStackEntryAt(stackEntryCount - 3).getName();
             navView.setCheckedItem(mSparseTags.keyAt(mSparseTags.indexOfValue(tagName)));
             super.onBackPressed();
         }
-        super.onBackPressed();
+    }
+
+    private void _getPermission() {
+       /* final File dir = new File(FileDownloader.getDownloadDir());
+        if (!dir.exists() || !dir.isDirectory()) {
+            dir.delete();
+            new RxPermissions(this).request(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE)
+                    .subscribe(new Action1<Boolean>() {
+                        @Override
+                        public void call(Boolean granted) {
+                            if (granted) {
+                                dir.mkdirs();
+                            } else {
+                                SnackbarUtils.showSnackbar(HomeActivity.this, "下载目录创建失败", true);
+                            }
+                        }
+                    });
+        }*/
     }
 
     /**

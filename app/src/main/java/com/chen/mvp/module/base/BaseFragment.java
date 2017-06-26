@@ -1,10 +1,8 @@
 package com.chen.mvp.module.base;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -17,13 +15,15 @@ import com.chen.mvp.injector.component.ApplicationComponent;
 import com.chen.mvp.utils.SwipeRefreshHelper;
 import com.chen.mvp.widget.EmptyLayout;
 import com.orhanobut.logger.Logger;
-import com.trello.rxlifecycle2.LifecycleTransformer;
-import com.trello.rxlifecycle2.components.RxFragment;
+import com.trello.rxlifecycle.LifecycleTransformer;
+import com.trello.rxlifecycle.components.support.RxFragment;
+
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
 
 /**
  * 基类碎片
@@ -41,6 +41,7 @@ public abstract class BaseFragment<T extends IBasePresenter> extends RxFragment 
     @Nullable
     @BindView(R.id.swipe_refresh)
     SwipeRefreshLayout mSwipeRefresh;
+
     @Inject
     protected T mPresenter;
 
@@ -84,6 +85,7 @@ public abstract class BaseFragment<T extends IBasePresenter> extends RxFragment 
 
     /**
      * 设置Fragment对用户是否可见（有待研究）
+     *
      * @param isVisibleToUser
      */
     @Override

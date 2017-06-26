@@ -1,4 +1,4 @@
-package com.chen.mvp.module.news;
+package com.chen.mvp.module.news.main;
 
 import com.chen.mvp.local.table.NewsTypeInfo;
 

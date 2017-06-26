@@ -1,27 +1,23 @@
 package com.chen.mvp.api;
 
 import android.support.annotation.NonNull;
-import android.text.TextUtils;
 
 
 import com.chen.mvp.AndroidApplication;
+import com.chen.mvp.api.bean.BaseNewsInfo;
 import com.chen.mvp.api.bean.NewsInfo;
 import com.chen.mvp.utils.NetUtil;
 import com.orhanobut.logger.Logger;
 
 import java.io.File;
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-import io.reactivex.Observable;
-import io.reactivex.ObservableSource;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Function;
-import io.reactivex.schedulers.Schedulers;
 import okhttp3.Cache;
 import okhttp3.CacheControl;
 import okhttp3.Interceptor;
@@ -33,7 +29,10 @@ import okio.Buffer;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Func1;
+import rx.schedulers.Schedulers;
 
 
 /**
@@ -182,8 +181,10 @@ public class RetrofitService {
      * @param typeStr 新闻类型
      * @return
      */
-    private static Function<Map<String, List<NewsInfo>>, Observable<NewsInfo>> _flatMapNews(final String typeStr) {
-        return stringListMap -> Observable.fromIterable(stringListMap.get(typeStr));
+    private static Func1<BaseNewsInfo, Observable<NewsInfo>> _flatMapNews(final String typeStr) {
+        return baseNewsInfo -> Observable.from(baseNewsInfo.getList());
+
+//        return stringListMap -> Observable.from(stringListMap.get(typeStr));
     }
 
 }

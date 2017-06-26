@@ -7,6 +7,11 @@
     <dimen name="nav_header_height">180dp</dimen>
     <dimen name="nav_header_vertical_spacing">10dp</dimen>
 
+    <!-- News List -->
+    <dimen name="news_icon_width">100dp</dimen>
+    <dimen name="news_icon_height">75dp</dimen>
+    <dimen name="news_ads_height">180dp</dimen>
+
     <!-- TabLayout -->
     <dimen name="tab_layout_height">38dp</dimen>
 </resources>
