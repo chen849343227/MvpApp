@@ -38,12 +38,9 @@ public class NewsListPresenter implements IBasePresenter {
     @Override
     public void getData(boolean isRefresh) {
         RetrofitService.getNewsList(type, page, LIMIT)
-                .doOnSubscribe(new Action0() {
-                    @Override
-                    public void call() {
-                        if (!isRefresh) {
-                            mView.showLoading();
-                        }
+                .doOnSubscribe(() -> {
+                    if (!isRefresh) {
+                        mView.showLoading();
                     }
                 })
                 .compose(mTransformer)
