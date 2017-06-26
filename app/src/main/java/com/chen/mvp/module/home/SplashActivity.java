@@ -9,9 +9,7 @@ import com.chen.mvp.utils.RxHelper;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import io.reactivex.Observer;
-import io.reactivex.annotations.NonNull;
-import io.reactivex.disposables.Disposable;
+import rx.Observer;
 
 /**
  * author long
@@ -47,22 +45,18 @@ public class SplashActivity extends BaseActivity {
                 .compose(this.<Integer>bindToLife())
                 .subscribe(new Observer<Integer>() {
                     @Override
-                    public void onSubscribe(@NonNull Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onNext(@NonNull Integer integer) {
+                    public void onNext(Integer integer) {
                         btnSkip.setText("跳过 " + integer);
                     }
 
+
                     @Override
-                    public void onError(@NonNull Throwable e) {
+                    public void onError(Throwable e) {
                         doSkip();
                     }
 
                     @Override
-                    public void onComplete() {
+                    public void onCompleted() {
                         doSkip();
                     }
                 });

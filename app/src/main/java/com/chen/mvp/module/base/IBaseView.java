@@ -1,7 +1,7 @@
 package com.chen.mvp.module.base;
 
 import com.chen.mvp.widget.EmptyLayout;
-import com.trello.rxlifecycle2.LifecycleTransformer;
+import com.trello.rxlifecycle.LifecycleTransformer;
 
 /**
  * author long

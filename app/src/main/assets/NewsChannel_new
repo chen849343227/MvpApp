@@ -1,0 +1,11 @@
+[
+    {"name":"科技","type":"tech"},
+    {"name":"娱乐","type":"ent"},
+    {"name":"军事","type":"war"},
+    {"name":"体育","type":"sport"},
+    {"name":"教育","type":"edu"},
+    {"name":"财经","type":"money"},
+    {"name":"股票","type":"gupiao"},
+    {"name":"旅游","type":"travel"},
+    {"name":"女人","type":"lady"},
+]

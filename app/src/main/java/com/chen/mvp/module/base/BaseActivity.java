@@ -1,10 +1,10 @@
 package com.chen.mvp.module.base;
 
-import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -15,8 +15,9 @@ import com.chen.mvp.R;
 import com.chen.mvp.injector.component.ApplicationComponent;
 import com.chen.mvp.utils.SwipeRefreshHelper;
 import com.chen.mvp.widget.EmptyLayout;
-import com.trello.rxlifecycle2.LifecycleTransformer;
-import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
+import com.trello.rxlifecycle.LifecycleTransformer;
+import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
+
 
 import javax.inject.Inject;
 
@@ -167,7 +168,7 @@ public abstract class BaseActivity<T extends IBasePresenter> extends RxAppCompat
      * @param fragment
      */
     protected void addFragment(int containerViewId, Fragment fragment) {
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.add(containerViewId, fragment);
         fragmentTransaction.commit();
     }
@@ -179,7 +180,7 @@ public abstract class BaseActivity<T extends IBasePresenter> extends RxAppCompat
      * @param fragment
      */
     protected void addFragment(int containerViewId, Fragment fragment, String tag) {
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         // 设置tag，不然下面 findFragmentByTag(tag)找不到
         fragmentTransaction.add(containerViewId, fragment, tag);
         fragmentTransaction.addToBackStack(tag);
@@ -193,7 +194,7 @@ public abstract class BaseActivity<T extends IBasePresenter> extends RxAppCompat
      * @param fragment
      */
     protected void replaceFragment(int containerViewId, Fragment fragment) {
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(containerViewId, fragment);
         fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         fragmentTransaction.addToBackStack(null);
@@ -208,7 +209,7 @@ public abstract class BaseActivity<T extends IBasePresenter> extends RxAppCompat
      */
     protected void replaceFragment(int containerViewId, Fragment fragment, String tag) {
         if (getSupportFragmentManager().findFragmentByTag(tag) == null) {
-            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             // 设置tag
             fragmentTransaction.replace(containerViewId, fragment, tag);
             fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
